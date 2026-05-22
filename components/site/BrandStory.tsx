@@ -22,7 +22,7 @@ export function BrandStory() {
             transition={{ delay: 0.1 }}
             className="mt-6 text-4xl md:text-5xl font-semibold tracking-tight"
           >
-            The Spirit of Agvanta: <span className="mt-4 block text-gradient-brand">A brand of Aham Krishi Care Pvt. Ltd.</span>
+            The Spirit of Agvanta
           </motion.h2>
         </div>
 

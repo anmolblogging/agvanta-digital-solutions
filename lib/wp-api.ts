@@ -36,7 +36,7 @@ export const CATEGORY_ORDER = [
   "Crop Nutrition",
   "Crop Protection",
   "Biologicals",
-  "Agri Services",
+  "Digital Solutions",
 ];
 
 function standardiseCategoryName(name: string | null): string | null {
@@ -46,7 +46,7 @@ function standardiseCategoryName(name: string | null): string | null {
   if (/nutrition/i.test(n)) return "Crop Nutrition";
   if (/protection/i.test(n)) return "Crop Protection";
   if (/biological/i.test(n)) return "Biologicals";
-  if (/advisory|service/i.test(n)) return "Agri Services";
+  if (/advisory|service|digital/i.test(n)) return "Digital Solutions";
   return n;
 }
 
@@ -135,63 +135,7 @@ export interface PaginatedProducts {
   currentPage: number;
 }
 
-// ─── Post Raw Shapes ──────────────────────────────────────────────────────────
 
-interface WpRawTerm {
-  id: number;
-  name: string;
-  slug: string;
-  taxonomy: string;
-}
-
-interface WpRawPost {
-  id: number;
-  slug: string;
-  date: string;
-  modified: string;
-  title: { rendered: string };
-  content: { rendered: string };
-  excerpt: { rendered: string };
-  aioseo_head_json?: WpAioseoHeadJson;
-  _embedded?: {
-    "wp:featuredmedia"?: Array<{
-      source_url: string;
-      alt_text: string;
-    }>;
-    "wp:term"?: Array<
-      Array<{
-        name: string;
-        slug: string;
-        taxonomy: string;
-      }>
-    >;
-  };
-}
-
-// ─── Post Normalised Shapes ───────────────────────────────────────────────────
-
-export interface NormalisedPost {
-  id: number;
-  slug: string;
-  title: string;
-  content: string;
-  excerpt: string;
-  date: string;
-  modified: string;
-  featuredImage: {
-    url: string;
-    alt: string;
-  } | null;
-  categories: Array<{ name: string; slug: string }>;
-  seo: ProductSeo; // reusing SEO shape
-}
-
-export interface PaginatedPosts {
-  posts: NormalisedPost[];
-  total: number;
-  totalPages: number;
-  currentPage: number;
-}
 
 // ─── Category index (derived from all products, used by Solutions component) ──
 
@@ -385,43 +329,7 @@ function normalise(raw: WpRawProduct): NormalisedProduct {
   };
 }
 
-function normalisePost(raw: WpRawPost): NormalisedPost {
-  const seoRaw = raw.aioseo_head_json ?? {};
-  const title = decodeHtml(raw.title.rendered);
 
-  const featuredMedia = raw._embedded?.["wp:featuredmedia"]?.[0];
-  const featuredImage = featuredMedia
-    ? { url: featuredMedia.source_url, alt: featuredMedia.alt_text || title }
-    : null;
-
-  const categories =
-    raw._embedded?.["wp:term"]?.[0]
-      ?.filter((t) => t.taxonomy === "category")
-      .map((t) => ({ name: decodeHtml(t.name), slug: t.slug })) ?? [];
-
-  return {
-    id: raw.id,
-    slug: raw.slug,
-    title,
-    content: raw.content.rendered,
-    excerpt: raw.excerpt.rendered,
-    date: raw.date,
-    modified: raw.modified,
-    featuredImage,
-    categories,
-    seo: {
-      title: decodeHtml(seoRaw.title ?? title),
-      description: decodeHtml(seoRaw.description ?? ""),
-      keywords: seoRaw.keywords ?? "",
-      canonicalUrl: seoRaw.canonical_url ?? "",
-      ogTitle: decodeHtml(seoRaw["og:title"] ?? seoRaw.title ?? title),
-      ogDescription: decodeHtml(seoRaw["og:description"] ?? seoRaw.description ?? ""),
-      twitterCard: seoRaw["twitter:card"] ?? "summary_large_image",
-      twitterTitle: decodeHtml(seoRaw["twitter:title"] ?? seoRaw.title ?? title),
-      twitterDescription: decodeHtml(seoRaw["twitter:description"] ?? seoRaw.description ?? ""),
-    },
-  };
-}
 
 // ─── Public API: Products ─────────────────────────────────────────────────────
 
@@ -448,9 +356,11 @@ export async function getProducts(opts: {
   const total = parseInt(headers.get("X-WP-Total") ?? "0", 10);
   const totalPages = parseInt(headers.get("X-WP-TotalPages") ?? "1", 10);
 
+  const normalised = data.map(normalise).filter((p) => p.category === "Digital Solutions");
+
   return {
-    products: data.map(normalise),
-    total,
+    products: normalised,
+    total: normalised.length,
     totalPages,
     currentPage: page,
   };
@@ -475,45 +385,11 @@ export async function getProductBySlug(slug: string): Promise<NormalisedProduct 
   );
 
   if (!data.length) return null;
-  return normalise(data[0]);
-}
-
-// ─── Public API: Posts ────────────────────────────────────────────────────────
-
-export async function getCategoryIdBySlug(slug: string): Promise<number | null> {
-  // Disabling post fetches for now
-  return null;
-}
-
-export async function getAllCategories(): Promise<Array<{ name: string; slug: string; count: number }>> {
-  // Disabling post fetches for now
-  return [];
-}
-
-export async function getPosts(opts: {
-  page?: number;
-  perPage?: number;
-  categorySlug?: string;
-} = {}): Promise<PaginatedPosts> {
-  // Disabling post fetches for now to fix build issues
-  return {
-    posts: [],
-    total: 0,
-    totalPages: 0,
-    currentPage: opts.page ?? 1,
-  };
+  const product = normalise(data[0]);
+  return product.category === "Digital Solutions" ? product : null;
 }
 
 
-export async function getPostBySlug(slug: string): Promise<NormalisedPost | null> {
-  // Disabling post fetches for now
-  return null;
-}
-
-export async function getAllPostSlugs(): Promise<string[]> {
-  // Disabling post fetches for now
-  return [];
-}
 
 
 /**
@@ -530,7 +406,7 @@ export async function getCategoryTree(): Promise<CategoryTree[]> {
     "Crop Nutrition": "blue",
     "Crop Protection": "green",
     "Biologicals": "blue",
-    "Agri Services": "green",
+    "Digital Solutions": "green",
   };
 
   for (const p of products) {

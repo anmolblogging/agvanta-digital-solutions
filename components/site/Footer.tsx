@@ -13,7 +13,7 @@ import { Logo } from "./Logo";
 
 // import { FaTwitter, FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
 
-export function Footer() {
+export function Footer({ products }: { products?: Array<{ name: string; slug: string }> }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
@@ -107,12 +107,8 @@ export function Footer() {
             <div className="bg-white text-black rounded-2xl px-4 py-3 inline-block">
               <Logo />
             </div>
-             <p className="text-sm text-white/75 max-w-sm leading-relaxed">
-              Agvanta is a brand of Aham Krishi Care Pvt Ltd
-            </p>
             <p className="text-sm text-white/75 max-w-sm leading-relaxed">
-              Agvanta empowers agriculture with smart, sustainable solutions —
-              from premium seeds to agri services for the modern farmer.
+              Agvanta is an Agritech Consultancy &amp; Digital Solutions company focused on transforming the agriculture ecosystem through innovative technology, intelligent automation, and data-driven business solutions.
             </p>
 
             {/* <div className="flex gap-3 pt-2">
@@ -143,44 +139,44 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/solutions" className="hover:text-white transition-colors">
-                  Solutions
-                </Link>
-              </li>
-              {/* <li>
-                <Link href="/digital" className="hover:text-white transition-colors">
-                  Digital
-                </Link>
-              </li>
-              <li>
-                <Link href="/partners" className="hover:text-white transition-colors">
-                  Partners
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="hover:text-white transition-colors">
-                  Insights
-                </Link>
-              </li> */}
-              <li>
                 <Link href="/contact" className="hover:text-white transition-colors">
                   Contact
                 </Link>
               </li>
             </ul>
           </div>
-
           <div className="md:col-span-3">
             <h4 className="text-base font-semibold mb-5">Solutions</h4>
             <ul className="space-y-3 text-sm text-white/75">
-              <li>Seeds</li>
-              <li>Crop Nutrition</li>
-              <li>Crop Protection</li>
-              <li>Biologicals</li>
-              <li>Agri Services</li>
+              {products && products.length > 0 ? (
+                products.map((p) => (
+                  <li key={p.slug}>
+                    <Link href={`/solutions/${p.slug}`} className="hover:text-white transition-colors">
+                      {p.name}
+                    </Link>
+                  </li>
+                ))
+              ) : (
+                <>
+                  <li>
+                    <Link href="/solutions/software-as-a-service-saas" className="hover:text-white transition-colors">
+                      Software as a Service (SaaS)
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/solutions/management-of-loyalty-engagement-programs" className="hover:text-white transition-colors">
+                      Management of Loyalty and Engagement Programs
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/solutions/digital-agri-consultancy" className="hover:text-white transition-colors">
+                      Digital Agri Consultancy
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
-
           <div className="md:col-span-3">
             <h4 className="text-base font-semibold mb-5">
               Subscribe Newsletter
@@ -228,8 +224,8 @@ export function Footer() {
 
         <div className="border-t border-white/10">
           <div className="container-wide py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/60">
-            <p>© {new Date().getFullYear()} Agvanta Agritech. All rights reserved.</p>
-            <p>Empowering Agriculture with Smart Solutions.</p>
+            <p>© {new Date().getFullYear()} Agvanta Services. All rights reserved.</p>
+            <p>Empowering Agriculture Through Technology, Intelligence &amp; Innovation.</p>
           </div>
         </div>
       </div>

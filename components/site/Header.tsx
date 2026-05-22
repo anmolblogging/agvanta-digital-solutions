@@ -10,10 +10,6 @@ import { Logo } from "./Logo";
 const NAV = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/solutions", label: "Solutions" },
-  { to: "/digital", label: "Digital" },
-  // { to: "/partners", label: "Partners" },
-  // { to: "/blog", label: "Insights" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -73,7 +69,7 @@ export function Header() {
 
         <div className="hidden md:block">
           <Link
-            href="/solutions"
+            href="/#catalog"
             className="group inline-flex items-center gap-2 rounded-full bg-gradient-green pl-5 pr-1.5 py-1.5 text-sm font-semibold text-primary-foreground shadow-elegant hover:shadow-glow transition-all"
           >
             Explore Products
@@ -122,7 +118,7 @@ export function Header() {
               })}
 
               <Link
-                href="/solutions"
+                href="/#catalog"
                 className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-green px-5 py-3 text-sm font-semibold text-primary-foreground"
               >
                 Explore Products <ArrowRight className="h-4 w-4" />

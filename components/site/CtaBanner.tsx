@@ -25,7 +25,7 @@ export function CtaBanner() {
 
           <div className="lg:col-span-4 flex lg:justify-end gap-3 flex-wrap">
             <Link
-              href="/solutions"
+              href="/#catalog"
               className="group inline-flex items-center gap-3 rounded-full bg-background pl-6 pr-2 py-2 text-sm font-semibold text-primary-deep shadow-elegant hover:bg-background/90 transition-all"
             >
               Explore Products
