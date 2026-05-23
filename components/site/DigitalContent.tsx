@@ -197,7 +197,7 @@ export default function DigitalContent({ products }: DigitalContentProps) {
             </div>
 
             {/* Right Column: Dynamic Visual Showcase */}
-            <div className="lg:col-span-6 relative flex items-center justify-center lg:justify-end">
+            <div className="lg:col-span-6 relative flex items-center justify-center lg:justify-center">
               {/* Layered background blurs */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-primary/10 blur-3xl rounded-full" />
               <div className="absolute top-1/3 left-2/3 -translate-x-1/2 -translate-y-1/2 w-56 h-56 bg-secondary/15 blur-3xl rounded-full" />
@@ -207,10 +207,10 @@ export default function DigitalContent({ products }: DigitalContentProps) {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, delay: 0.2 }}
-                className="relative z-10  sm:w-[320px] md:w-[480px] lg:w-[500px] xl:w-[540px] h-auto animate-float-slow"
+                className="relative z-10  w-[260px] md:w-[400px] h-auto animate-float-slow"
               >
                 <img
-                  src="/assets/hero-phone.png"
+                  src="/heroImage.png"
                   alt="Agvanta Digital Platform"
                   className="w-full h-full object-contain drop-shadow-[0_24px_48px_rgba(0,0,0,0.15)]"
                 />
