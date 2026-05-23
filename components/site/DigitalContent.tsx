@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,7 +19,6 @@ import {
   ArrowUpRight,
   Leaf
 } from "lucide-react";
-import { PartnerModal } from "./PartnerModal";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { Faq } from "./Faq";
 import { Testimonials } from "./Testimonials";
@@ -90,8 +88,6 @@ interface DigitalContentProps {
 }
 
 export default function DigitalContent({ products }: DigitalContentProps) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <>
       {/* ─── 1. HERO SECTION ─── */}
@@ -189,15 +185,15 @@ export default function DigitalContent({ products }: DigitalContentProps) {
                   </span>
                 </a>
 
-                <button
-                  onClick={() => setIsModalOpen(true)}
+                <Link
+                  href="/contact"
                   className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-blue pl-5 pr-2 py-2 text-sm font-semibold text-secondary-foreground shadow-glow-blue hover:shadow-elegant transition-all"
                 >
-                  Become a Partner
+                  Contact Us
                   <span className="h-7 w-7 rounded-full bg-white/20 grid place-items-center group-hover:translate-x-0.5 transition-transform shrink-0">
                     <ArrowRight className="h-3.5 w-3.5" />
                   </span>
-                </button>
+                </Link>
               </motion.div>
             </div>
 
@@ -523,10 +519,6 @@ export default function DigitalContent({ products }: DigitalContentProps) {
 
       <CtaBanner />
 
-      <PartnerModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
     </>
   );
 }

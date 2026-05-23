@@ -34,21 +34,16 @@ export function BrandStory() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-7 space-y-6 text-lg text-muted-foreground leading-relaxed"
           >
-            <p>
-              The heart of agriculture beats with a profound sense of self and community. At our core, we are <strong className="text-foreground font-semibold">Aham Krishi Care Pvt Ltd</strong>. "Aham" signifies "I" or "Self," and "Krishi" represents "Agriculture."
-            </p>
-            <p>
-              This name is more than just our legal identity; it is our foundation. It encapsulates our personal commitment, our respect for the soil, and our unwavering dedication to the farming community that feeds the world.
-            </p>
-            <p>
-              However, in today’s rapidly evolving world, commitment alone is not enough. To truly "Care" for the land and those who tend it, we must embrace technology, insight, and global best practices.That required a brand that could look forward,  a symbol of the next step in farming. That is why we created Agvanta.
-            </p>
-            <div className="bg-surface p-6 rounded-2xl border-l-4 border-primary italic">
-              "That is why we created Agvanta."
-            </div>
-            <p>
-              While Aham Krishi Care is our deep-rooted promise, <strong className="text-gradient-green font-semibold">Agvanta is the powerful advantage</strong> we bring to the field. It is the visual representation of our core philosophy: when human dedication meets modern innovation, the result is growth without limits.
-            </p>
+            <p>Agvanta Services is an Agritech Consultancy &amp; Digital Solutions company focused on transforming
+the agriculture ecosystem through innovative technology, intelligent automation, and data-driven
+business solutions. We partner with agri-input companies, agritech startups, agribusiness
+enterprises, and corporates to accelerate growth, strengthen customer engagement, streamline
+operations, and build scalable digital ecosystems for the future of agriculture.</p>
+<p>With a strong foundation in agriculture and deep understanding of agri-business operations,
+Agvanta delivers customized solutions that bridge the gap between traditional agricultural
+practices and modern digital transformation. Our approach combines domain expertise,
+technology innovation, analytics, and business intelligence to help organizations achieve
+operational excellence and sustainable growth.</p>
           </motion.div>
 
           <motion.div 

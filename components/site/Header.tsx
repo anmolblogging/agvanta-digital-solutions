@@ -72,7 +72,7 @@ export function Header() {
             href="/#catalog"
             className="group inline-flex items-center gap-2 rounded-full bg-gradient-green pl-5 pr-1.5 py-1.5 text-sm font-semibold text-primary-foreground shadow-elegant hover:shadow-glow transition-all"
           >
-            Explore Products
+            Explore Solutions
             <span className="h-8 w-8 rounded-full bg-white/20 grid place-items-center transition-transform group-hover:translate-x-0.5">
               <ArrowRight className="h-3.5 w-3.5" />
             </span>
@@ -121,7 +121,7 @@ export function Header() {
                 href="/#catalog"
                 className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-green px-5 py-3 text-sm font-semibold text-primary-foreground"
               >
-                Explore Products <ArrowRight className="h-4 w-4" />
+                Explore Solutions <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </motion.div>

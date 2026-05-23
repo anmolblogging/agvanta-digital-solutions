@@ -1,13 +1,7 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { PartnerModal } from "./PartnerModal";
 
 export function CtaBanner() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <section className="container-wide py-16">
       <div className="relative overflow-hidden rounded-[2rem] p-10 md:p-16 bg-gradient-brand text-primary-foreground shadow-glow">
@@ -19,7 +13,7 @@ export function CtaBanner() {
             </h3>
 
             <p className="mt-3 text-base md:text-xl text-primary-foreground/85 max-w-2xl">
-              Join thousands of farmers using smarter inputs, sustainable practices, and digital advisory to lift every harvest. Your best season starts here.
+              Partner with Agvanta to accelerate your digital growth, automate business workflows, and build scalable agricultural tech ecosystems.
             </p>
           </div>
 
@@ -28,21 +22,21 @@ export function CtaBanner() {
               href="/#catalog"
               className="group inline-flex items-center gap-3 rounded-full bg-background pl-6 pr-2 py-2 text-sm font-semibold text-primary-deep shadow-elegant hover:bg-background/90 transition-all"
             >
-              Explore Products
+              Explore Solutions
               <span className="h-9 w-9 rounded-full bg-primary/15 grid place-items-center transition-transform group-hover:translate-x-0.5">
                 <ArrowRight className="h-4 w-4" />
               </span>
             </Link>
 
-            <button
-              onClick={() => setIsModalOpen(true)}
+            <Link
+              href="/contact"
               className="group inline-flex items-center gap-3 rounded-full bg-white/10 backdrop-blur pl-6 pr-2 py-2 text-sm font-semibold text-primary-foreground border border-white/30 hover:bg-white/20 transition-all"
             >
-              Become a Partner
+              Contact Us
               <span className="h-9 w-9 rounded-full bg-white/20 grid place-items-center transition-transform group-hover:translate-x-0.5">
                 <ArrowRight className="h-4 w-4" />
               </span>
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -55,11 +49,6 @@ export function CtaBanner() {
           className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-primary-foreground/10 blur-3xl"
         />
       </div>
-
-      <PartnerModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
     </section>
   );
 }
