@@ -6,24 +6,24 @@ import { Plus } from "lucide-react";
 
 const FAQS = [
   {
-    q: "What products does Agvanta offer?",
-    a: "Agvanta offers a comprehensive range of agricultural inputs including certified seeds, crop nutrition products, crop protection solutions, and biological alternatives. All products are available through authorised dealer networks across India.",
+    q: "What services does Agvanta provide?",
+    a: "Agvanta is a leading Agritech Consultancy and Digital Solutions provider. We design and build enterprise SaaS platforms, Agri CRM systems, WhatsApp Business API bots, distributor management portals, supply chain track & trace tracking, and retailer loyalty programs tailored for agribusinesses.",
   },
   {
-    q: "Where can I buy Agvanta inputs?",
-    a: "Agvanta products are available through a growing network of authorised dealers and distributors across India. Visit our Dealer Locator page or contact us to find your nearest stockist.",
+    q: "How does Agvanta help agri-input companies and startups?",
+    a: "We bridge the gap between traditional field operations and modern technology. By implementing custom sales force automation, secondary sales tracking, and AI-enabled farmer advisory tools, we help agri-input companies and startups scale operations, optimize costs, and build stronger relationships.",
   },
   {
-    q: "How does the digital advisory work?",
-    a: "Agvanta's digital advisory platform provides crop-specific, region-wise guidance across the full crop lifecycle from seed selection to harvest. Farmers receive personalised recommendations on inputs, irrigation, and pest management through the app or via agronomist calls.",
+    q: "What is Agvanta's Track & Trace solution?",
+    a: "Our Track & Trace system uses QR codes and barcodes for anti-counterfeit protection and real-time product authentication. It gives agribusinesses comprehensive secondary sales visibility and detailed supply chain analytics via interactive dashboards.",
   },
   {
-    q: "Are Agvanta's biological products safe for soil and environment?",
-    a: "Yes. Agvanta's biological products are formulated to be safe for soil microbiome health, non-target organisms, and the surrounding environment. They are part of our commitment to sustainable and eco-friendly crop care practices.",
+    q: "Can Agvanta build customized SaaS and CRM solutions?",
+    a: "Yes. We develop scalable, business-specific SaaS platforms, including custom CRM software, learning management systems (LMS) for channel partners, dealer-distributor management systems, and specialized business intelligence dashboards.",
   },
   {
-    q: "Can Agvanta help my dealership or agri-business grow?",
-    a: "Agvanta offers structured loyalty programmes, business growth tools, and SaaS solutions designed for dealers, distributors, and agri-input companies. Contact our partnership team to learn more.",
+    q: "Who leads Agvanta's consulting and technical strategy?",
+    a: "Our advisory services are led by Rajeev Raval, an accomplished Agritech Consultant and Digital Transformation Strategist with over 25 years of hands-on experience in the agri-input industry. He has successfully designed and scaled digital platforms for leading agricultural organizations.",
   },
 ] as const;
 
@@ -42,8 +42,7 @@ export function Faq() {
           </h2>
 
           <p className="mt-5 text-muted-foreground max-w-md">
-            Everything you need to know about Agvanta inputs, advisory and our
-            on-ground network. Still curious? We're a call away.
+            Everything you need to know about Agvanta's agritech consultancy, digital solutions, and custom SaaS platforms. Still curious? We're here to help.
           </p>
         </div>
 

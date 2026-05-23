@@ -21,22 +21,22 @@ export function Footer({ products }: { products?: Array<{ name: string; slug: st
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    
+
     try {
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
-      
+
       const data = await res.json();
-      
+
       if (!res.ok) throw new Error(data.message || "Failed to subscribe");
-      
+
       setStatus("success");
       setMessage("Thank you for subscribing!");
       setEmail("");
-      
+
       // Reset success message after 5s
       setTimeout(() => setStatus("idle"), 5000);
     } catch (err: any) {
@@ -65,12 +65,12 @@ export function Footer({ products }: { products?: Array<{ name: string; slug: st
             {
               icon: MapPin,
               label: "Location:",
-              v1: { 
+              v1: {
                 text: `Aham Krishi Care Pvt Ltd 
                 16, Aslali Sewa Sahkari Mandli Godown,
                 Near Ishwar Krupa Society,
                 Behind Janki Hotel,
-                Aslali, Ahmedabad - 382427` 
+                Aslali, Ahmedabad - 382427`
               },
               v2: { text: "India" },
             },
@@ -213,9 +213,8 @@ export function Footer({ products }: { products?: Array<{ name: string; slug: st
             </form>
 
             {status !== "idle" && (
-              <p className={`mt-3 text-xs font-medium ${
-                status === "success" ? "text-primary" : "text-red-400"
-              }`}>
+              <p className={`mt-3 text-xs font-semibold ${status === "success" ? "text-primary" : "text-red-400"
+                }`}>
                 {status === "success" ? "✓ " : "✕ "}{message}
               </p>
             )}

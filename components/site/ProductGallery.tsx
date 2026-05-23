@@ -40,9 +40,9 @@ export function ProductGallery({ images, name, category, gradientClass }: Produc
   }
 
   return (
-    <div 
-      className="space-y-6" 
-      onMouseEnter={() => setIsPaused(true)} 
+    <div
+      className="space-y-6"
+      onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Main Image Container */}
@@ -66,7 +66,7 @@ export function ProductGallery({ images, name, category, gradientClass }: Produc
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-contain"
             />
-            
+
             {/* Placeholder while images are hidden */}
             <div className={`h-full w-full ${gradientClass} opacity-10 flex items-center justify-center`}>
               <Leaf className="h-20 w-20 text-primary-deep opacity-20" />
@@ -102,9 +102,8 @@ export function ProductGallery({ images, name, category, gradientClass }: Produc
                 <button
                   key={i}
                   onClick={() => setActiveIdx(i)}
-                  className={`h-2 rounded-full transition-all duration-500 ${
-                    i === activeIdx ? "w-8 bg-white shadow-md" : "w-2 bg-white/40 hover:bg-white/60"
-                  }`}
+                  className={`h-2 rounded-full transition-all duration-500 ${i === activeIdx ? "w-8 bg-white shadow-md" : "w-2 bg-white/40 hover:bg-white/60"
+                    }`}
                   aria-label={`Go to slide ${i + 1}`}
                 />
               ))}
@@ -118,7 +117,7 @@ export function ProductGallery({ images, name, category, gradientClass }: Produc
         <div className="space-y-3">
           <div className="flex items-center justify-between px-1">
             <span className="text-[0.65rem] font-bold uppercase tracking-widest text-muted-foreground">Product Gallery</span>
-            <span className="text-[0.65rem] font-medium text-muted-foreground/60">{activeIdx + 1} / {images.length}</span>
+            <span className="text-[0.65rem] font-semibold text-muted-foreground/60">{activeIdx + 1} / {images.length}</span>
           </div>
           <div className="flex gap-5 overflow-x-auto p-2 pb-4 scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
             {images.map((img, i) => {
@@ -127,11 +126,10 @@ export function ProductGallery({ images, name, category, gradientClass }: Produc
                 <button
                   key={i}
                   onClick={() => setActiveIdx(i)}
-                  className={`relative h-20 w-28 shrink-0 rounded-2xl transition-all duration-500 ${
-                    isActive 
-                      ? `ring-2 ring-offset-2 ${gradientClass.replace('bg-', 'ring-')} shadow-xl scale-105 z-20` 
+                  className={`relative h-20 w-28 shrink-0 rounded-2xl transition-all duration-500 ${isActive
+                      ? `ring-2 ring-offset-2 ${gradientClass.replace('bg-', 'ring-')} shadow-xl scale-105 z-20`
                       : "ring-1 ring-border opacity-60 hover:opacity-100 hover:scale-[1.02] z-10"
-                  }`}
+                    }`}
                 >
                   <div className="absolute inset-0 rounded-2xl overflow-hidden">
                     {/* TODO: Uncomment to add product image */}

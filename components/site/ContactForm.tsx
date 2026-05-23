@@ -99,13 +99,13 @@ export function ContactForm({
         </h3>
 
         {status === "success" && (
-          <div className="mb-6 p-4 rounded-2xl bg-green-50 border border-green-200 text-green-700 text-sm font-medium">
+          <div className="mb-6 p-4 rounded-2xl bg-green-50 border border-green-200 text-green-700 text-sm font-semibold">
             ✅ Message sent successfully! We'll get back to you shortly.
           </div>
         )}
 
         {status === "error" && (
-          <div className="mb-6 p-4 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-sm font-medium">
+          <div className="mb-6 p-4 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-sm font-semibold">
             ❌ {errorMsg}
           </div>
         )}
@@ -113,7 +113,7 @@ export function ContactForm({
         <form className="space-y-6" onSubmit={handleSubmit}>
           {/* Who are you */}
           <div className="space-y-2">
-            <label className="text-sm font-medium ml-1 text-foreground">
+            <label className="text-sm font-semibold ml-1 text-foreground">
               Who are you? <span className="text-red-500">*</span>
             </label>
             <div className="relative">
@@ -140,7 +140,7 @@ export function ContactForm({
           {/* Full Name + Phone */}
           <div className="grid md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label className="text-sm font-medium ml-1 text-foreground">
+              <label className="text-sm font-semibold ml-1 text-foreground">
                 Full Name <span className="text-red-500">*</span>
               </label>
               <input
@@ -154,7 +154,7 @@ export function ContactForm({
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium ml-1 text-foreground">
+              <label className="text-sm font-semibold ml-1 text-foreground">
                 Phone Number <span className="text-red-500">*</span>
               </label>
               <input
@@ -173,7 +173,7 @@ export function ContactForm({
           {/* Email + Subject */}
           <div className="grid md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label className="text-sm font-medium ml-1 text-foreground">
+              <label className="text-sm font-semibold ml-1 text-foreground">
                 Email Address <span className="text-red-500">*</span>
               </label>
               <input
@@ -187,7 +187,7 @@ export function ContactForm({
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium ml-1 text-foreground">
+              <label className="text-sm font-semibold ml-1 text-foreground">
                 Subject <span className="text-red-500">*</span>
               </label>
               <div className="relative">
@@ -210,7 +210,7 @@ export function ContactForm({
 
           {/* State / UT */}
           <div className="space-y-2">
-            <label className="text-sm font-medium ml-1 text-foreground">
+            <label className="text-sm font-semibold ml-1 text-foreground">
               State / Union Territory <span className="text-red-500">*</span>
             </label>
             <div className="relative">
@@ -232,7 +232,7 @@ export function ContactForm({
 
           {/* Message */}
           <div className="space-y-2">
-            <label className="text-sm font-medium ml-1 text-foreground">
+            <label className="text-sm font-semibold ml-1 text-foreground">
               Message <span className="text-red-500">*</span>
             </label>
             <textarea

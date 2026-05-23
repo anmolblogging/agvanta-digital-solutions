@@ -1,16 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  Smartphone, 
-  Cpu, 
-  MessageSquare, 
-  QrCode, 
-  Gift, 
-  GraduationCap, 
-  Target, 
-  Cloud, 
-  ChevronRight 
+import {
+  Smartphone,
+  Cpu,
+  MessageSquare,
+  QrCode,
+  Gift,
+  GraduationCap,
+  Target,
+  Cloud,
+  ChevronRight
 } from "lucide-react";
 
 const SERVICES = [
@@ -129,11 +129,11 @@ export function AboutServices() {
   return (
     <section className="py-20 md:py-28 bg-surface overflow-hidden">
       <div className="container-wide">
-        
+
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
           <span className="eyebrow">Our Offerings</span>
-          <h2 className="mt-4 text-3xl md:text-5xl font-medium leading-tight">
+          <h2 className="mt-4 text-3xl md:text-5xl font-semibold leading-tight">
             Our <span className="text-gradient-green">Services</span>
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
@@ -157,14 +157,13 @@ export function AboutServices() {
               >
                 <div>
                   {/* Icon Box */}
-                  <div className={`h-12 w-12 rounded-2xl grid place-items-center text-primary-foreground shadow-sm group-hover:scale-105 transition-transform ${
-                    isGreen ? "bg-gradient-green" : "bg-gradient-blue"
-                  }`}>
+                  <div className={`h-12 w-12 rounded-2xl grid place-items-center text-primary-foreground shadow-sm group-hover:scale-105 transition-transform ${isGreen ? "bg-gradient-green" : "bg-gradient-blue"
+                    }`}>
                     <Icon className="h-6 w-6 text-white" />
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="mt-5 text-lg font-medium leading-snug group-hover:text-primary-deep transition-colors">
+                  <h3 className="mt-5 text-lg font-semibold leading-snug group-hover:text-primary-deep transition-colors">
                     {s.title}
                   </h3>
                   <p className="mt-2.5 text-xs text-muted-foreground leading-relaxed">
@@ -176,7 +175,7 @@ export function AboutServices() {
                     {s.features.map((feat) => (
                       <li key={feat} className="flex items-start gap-2">
                         <ChevronRight className="h-3.5 w-3.5 text-primary mt-0.5 shrink-0" />
-                        <span className="text-xs font-medium text-foreground/80 leading-snug">
+                        <span className="text-xs font-semibold text-foreground/80 leading-snug">
                           {feat}
                         </span>
                       </li>
@@ -189,7 +188,7 @@ export function AboutServices() {
             );
           })}
         </div>
-        
+
       </div>
     </section>
   );

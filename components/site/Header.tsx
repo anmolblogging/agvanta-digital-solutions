@@ -33,11 +33,10 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled
           ? "bg-background/85 backdrop-blur-xl border-b border-border/70"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="container-wide flex items-center justify-between h-18 py-3">
         <Link href="/" aria-label="Agvanta home">
@@ -52,7 +51,7 @@ export function Header() {
               <Link
                 key={item.to}
                 href={item.to}
-                className="relative px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+                className="relative px-4 py-2 text-sm font-semibold text-foreground/80 hover:text-foreground transition-colors"
               >
                 {item.label}
                 {active && (
@@ -106,11 +105,10 @@ export function Header() {
                   <Link
                     key={item.to}
                     href={item.to}
-                    className={`rounded-xl px-4 py-3 text-base font-medium hover:bg-accent ${
-                      active
+                    className={`rounded-xl px-4 py-3 text-base font-semibold hover:bg-accent ${active
                         ? "rounded-xl px-4 py-3 text-base font-semibold bg-accent text-primary-deep"
                         : ""
-                    }`}
+                      }`}
                   >
                     {item.label}
                   </Link>

@@ -7,10 +7,10 @@ export function MissionValues() {
   return (
     <section className="pt-16 pb-20 md:pb-32 bg-surface overflow-hidden">
       <div className="container-wide">
-        
+
         {/* VISION, MISSION & FUTURE */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-stretch">
-          
+
           {/* Left Column: Vision & Mission */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -23,7 +23,7 @@ export function MissionValues() {
               <div className="h-12 w-12 rounded-2xl bg-gradient-green grid place-items-center mb-6 shadow-glow">
                 <Lightbulb className="h-6 w-6 text-white" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-medium mb-4 text-foreground">
+              <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-foreground">
                 Our Vision
               </h2>
               <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
@@ -35,7 +35,7 @@ export function MissionValues() {
               <div className="h-12 w-12 rounded-2xl bg-gradient-blue grid place-items-center mb-6 shadow-glow-blue">
                 <Target className="h-6 w-6 text-white" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-medium mb-4 text-foreground">
+              <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-foreground">
                 Our Mission
               </h2>
               <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
@@ -55,10 +55,10 @@ export function MissionValues() {
             <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-elegant ring-1 ring-border relative z-10 flex flex-col justify-between h-full">
               <div>
                 <span className="eyebrow mb-6 block">Future of Farming</span>
-                <h3 className="text-2xl md:text-3xl font-medium mb-6 text-foreground">
+                <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-foreground">
                   Building the Future of Agriculture
                 </h3>
-                
+
                 <div className="space-y-5 text-sm md:text-base text-muted-foreground leading-relaxed">
                   <p>
                     At Agvanta, we believe the future of agriculture lies in intelligent automation, connected platforms, actionable analytics, and customer-centric digital ecosystems. Our mission is to help organizations modernize their business processes, improve decision-making, enhance customer engagement, and unlock new growth opportunities through technology.
@@ -68,12 +68,12 @@ export function MissionValues() {
                   </p>
                 </div>
               </div>
-              
-              <div className="mt-8 pt-6 border-t border-border/60 flex items-center gap-3 text-primary-deep font-medium text-sm">
+
+              <div className="mt-8 pt-6 border-t border-border/60 flex items-center gap-3 text-primary-deep font-semibold text-sm">
                 <span>Shaping digital agricultural ecosystems</span>
               </div>
             </div>
-            
+
             {/* Decorative background blur */}
             <div className="absolute -bottom-10 -right-10 h-64 w-64 bg-gradient-green opacity-20 blur-3xl rounded-full" />
           </motion.div>

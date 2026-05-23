@@ -8,7 +8,7 @@ export function OriginInterpretation() {
     <section className="py-20 md:py-28 bg-surface relative">
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
+
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -17,7 +17,7 @@ export function OriginInterpretation() {
           >
             <div className="bg-white rounded-[3rem] p-12 shadow-elegant ring-1 ring-border flex flex-col items-center text-center">
               <img src="/Header.png" alt="Agvanta Logo" className="h-24 md:h-32 mb-10 object-contain" />
-              
+
               <div className="grid sm:grid-cols-2 gap-8 w-full text-left">
                 <div className="p-6 rounded-2xl bg-surface ring-1 ring-border">
                   <div className="h-8 w-8 rounded-lg bg-primary/10 grid place-items-center mb-4">
@@ -26,7 +26,7 @@ export function OriginInterpretation() {
                   <h4 className="font-bold text-sm uppercase tracking-wider text-primary mb-2">Ag</h4>
                   <p className="text-sm text-muted-foreground">Short form of Agriculture / Agro — representing our roots in the soil.</p>
                 </div>
-                
+
                 <div className="p-6 rounded-2xl bg-surface ring-1 ring-border">
                   <div className="h-8 w-8 rounded-lg bg-secondary/10 grid place-items-center mb-4">
                     <Sparkles className="h-4 w-4 text-secondary" />
@@ -57,7 +57,7 @@ export function OriginInterpretation() {
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
               The Agvanta logo is a synthesis of our ideals. The elegant 'A' represents both Agvanta and Aham. The sweeping green represents nature and the deep knowledge of the soil that we cherish. The gradient flows into a vibrant blue, symbolising technology, water, clarity, and data-driven solutions.
             </p>
-            
+
             <ul className="mt-8 space-y-6">
               <li className="flex gap-4">
                 <div className="h-10 w-10 shrink-0 rounded-full bg-white shadow-sm ring-1 ring-border grid place-items-center">
@@ -83,7 +83,7 @@ export function OriginInterpretation() {
               <div className="h-10 w-10 shrink-0 rounded-full bg-primary/10 grid place-items-center">
                 <Info className="h-5 w-5 text-primary" />
               </div>
-              <p className="text-sm font-medium text-primary-deep">
+              <p className="text-sm font-semibold text-primary-deep">
                 Agvanta: A combination of Ag (Agriculture) and Vanta (Advantage).
               </p>
             </div>

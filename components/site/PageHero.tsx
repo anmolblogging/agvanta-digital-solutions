@@ -40,7 +40,7 @@ export function PageHero({
               {highlight}
             </div>
           )}
-          <h1 className="text-4xl md:text-7xl font-semibold leading-[1.1] tracking-tight text-foreground">
+          <h1 className="text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight text-foreground">
             {title}
           </h1>
         </motion.div>
