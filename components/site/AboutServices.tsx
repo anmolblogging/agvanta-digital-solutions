@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Smartphone,
   Cpu,
@@ -132,7 +131,6 @@ interface ServiceCardProps {
 }
 
 function ServiceCard({ service, index }: ServiceCardProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
   const Icon = service.icon;
   const isGreen = service.tone === "green";
 
@@ -161,38 +159,16 @@ function ServiceCard({ service, index }: ServiceCardProps) {
         </p>
 
         {/* Features List */}
-        <AnimatePresence initial={false}>
-          {isExpanded && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="overflow-hidden"
-            >
-              <ul className="mt-4 space-y-2 border-t border-border/50 pt-4">
-                {service.features.map((feat) => (
-                  <li key={feat} className="flex items-start gap-2">
-                    <ChevronRight className="h-3.5 w-3.5 text-primary mt-0.5 shrink-0" />
-                    <span className="text-xs font-semibold text-foreground/80 leading-snug">
-                      {feat}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-
-      <div className="mt-6 pt-2 flex items-center justify-between z-10">
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="text-xs font-semibold text-primary hover:text-primary-deep flex items-center gap-1 transition-colors cursor-pointer group/btn"
-        >
-          <span>{isExpanded ? "Read Less" : "Read More"}</span>
-          <ChevronRight className={`h-3.5 w-3.5 transition-transform duration-300 ${isExpanded ? "rotate-90" : "group-hover/btn:translate-x-0.5"}`} />
-        </button>
+        <ul className="mt-4 space-y-2 border-t border-border/50 pt-4">
+          {service.features.map((feat) => (
+            <li key={feat} className="flex items-start gap-2">
+              <ChevronRight className="h-3.5 w-3.5 text-primary mt-0.5 shrink-0" />
+              <span className="text-xs font-semibold text-foreground/80 leading-snug">
+                {feat}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
 
       <div className="absolute inset-x-6 bottom-3 h-px bg-linear-to-r from-transparent via-border to-transparent" />
