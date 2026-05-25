@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2, User, Award, ShieldCheck, Briefcase } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa";
 
 const INITIATIVES = [
   "CRM & Customer Engagement Platforms",
@@ -46,7 +47,18 @@ export function LeaderProfile() {
                   Leadership
                 </span>
 
-                <h3 className="text-2xl font-semibold text-foreground">Rajeev Raval</h3>
+                <div className="flex items-center justify-center gap-2 mb-1">
+                  <h3 className="text-2xl font-semibold text-foreground">Rajeev Raval</h3>
+                  <a 
+                    href="https://www.linkedin.com/in/rajeev-raval-093069a1/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary-deep transition-colors duration-300"
+                    aria-label="Rajeev Raval LinkedIn Profile"
+                  >
+                    <FaLinkedin className="h-5 w-5" />
+                  </a>
+                </div>
                 <p className="text-sm font-semibold text-muted-foreground mt-1">
                   Agritech Consultant &amp; Digital Transformation Strategist
                 </p>

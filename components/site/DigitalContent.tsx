@@ -207,7 +207,7 @@ export default function DigitalContent({ products }: DigitalContentProps) {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, delay: 0.2 }}
-                className="relative z-10  w-[260px] md:w-[400px] h-auto animate-float-slow"
+                className="relative z-10  w-[360px] md:w-[460px] lg:w-[620px] h-auto animate-float-slow"
               >
                 <img
                   src="/heroImage.png"

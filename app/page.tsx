@@ -3,7 +3,7 @@ import DigitalContent from "@/components/site/DigitalContent";
 import { getAllProducts } from "@/lib/wp-api";
 
 export const metadata = {
-  title: "Digital Advisory — Smart farming in your pocket | Agvanta",
+  title: "Agvanata | Smart farming in your pocket",
   description:
     "The Agvanta digital advisory delivers personalised, weather-aware recommendations on sowing, irrigation, nutrition and protection — in your language.",
   openGraph: {

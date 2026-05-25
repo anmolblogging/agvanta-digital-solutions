@@ -10,6 +10,7 @@ import { Logo } from "./Logo";
 const NAV = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
+  { to: "/services", label: "Services" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -51,7 +52,7 @@ export function Header() {
               <Link
                 key={item.to}
                 href={item.to}
-                className="relative px-4 py-2 text-sm font-semibold text-foreground/80 hover:text-foreground transition-colors"
+                className="relative px-4 py-2 text-md font-semibold text-foreground/80 hover:text-foreground transition-colors"
               >
                 {item.label}
                 {active && (
