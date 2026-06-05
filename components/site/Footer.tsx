@@ -66,11 +66,12 @@ export function Footer({ products }: { products?: Array<{ name: string; slug: st
               icon: MapPin,
               label: "Location:",
               v1: {
-                text: `Aham Krishi Care Pvt Ltd 
-                16, Aslali Sewa Sahkari Mandli Godown,
-                Near Ishwar Krupa Society,
-                Behind Janki Hotel,
-                Aslali, Ahmedabad - 382427`
+                text: `Agvanta Services,  
+                Office No. 2518, 
+                Solus Building, 
+                Hiranandani Estate, 
+                Ghodbunder Road, 
+                Thane - 400607, Maharashtra`
               },
               v2: { text: "India" },
             },

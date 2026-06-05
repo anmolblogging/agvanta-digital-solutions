@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import {
   Smartphone,
@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { Faq } from "./Faq";
-import { Testimonials } from "./Testimonials";
+// import { Testimonials } from "./Testimonials";
 import { type NormalisedProduct } from "@/lib/wp-api";
 
 const OFFERINGS = [
@@ -67,7 +67,7 @@ const FUTURE_ROADMAP = [
   },
   {
     phase: "Phase 03",
-    title: "Predictive Analytics for Health",
+    title: "Predictive Analytics for Plant Health",
     desc: "Developing early detection algorithms to map pest infestation risks and crop disease outbreaks before they impact yields.",
     icon: TrendingUp,
     color: "green"
@@ -464,7 +464,7 @@ export default function DigitalContent({ products }: DigitalContentProps) {
         </div>
       </section>
 
-      <Testimonials />
+      {/* <Testimonials /> */}
 
       <Faq />
 
