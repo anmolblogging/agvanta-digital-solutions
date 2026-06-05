@@ -68,11 +68,10 @@ export function ContactContent() {
                   <h4 className="font-semibold text-xl">Visit Us</h4>
                   <p className="text-muted-foreground mt-1">
                     {/* Agvanta Services, Office No. 2518, Solus Building, Hiranandani Estate, Ghodbunder Road, Thane - 400607, Maharashtra */}
-                    Agvanta Services
-                    <br />Office No. 2518,
-                    <br /> Solus Building,
-                    <br />  Hiranandani Estate,
-                    Ghodbunder Road, <br />   Thane - 400607, Maharashtra
+                    Agvanta Services, Office No. 2518,
+                    <br /> Solus Building, Hiranandani Estate,
+                    <br />
+                    Ghodbunder Road, Thane - 400607, Maharashtra
                   </p>
                 </div>
               </div>

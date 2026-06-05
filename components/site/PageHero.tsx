@@ -25,7 +25,7 @@ export function PageHero({
         className="absolute -bottom-40 -left-32 h-[28rem] w-[28rem] rounded-full opacity-25 blur-3xl"
         style={{ background: "var(--gradient-blue)" }}
       />
-      <div className="container-wide relative pt-36 pb-20 md:pt-44 md:pb-28 max-w-4xl text-center mx-auto">
+      <div className="container-wide relative pt-28 pb-12 md:pt-36 md:pb-16 max-w-4xl text-center mx-auto">
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <span className="eyebrow">{eyebrow}</span>
         </motion.div>

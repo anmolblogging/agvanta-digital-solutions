@@ -46,7 +46,7 @@ export function Footer({ products }: { products?: Array<{ name: string; slug: st
   };
 
   return (
-    <footer className="relative mt-24">
+    <footer className="relative mt-8 ">
       {/* Contact accent band — uses brand secondary blue (replacing Ecoland's yellow) */}
       <div className="bg-gradient-blue text-secondary-foreground">
         <div className="container-wide py-10 grid md:grid-cols-3 gap-8">
@@ -66,12 +66,9 @@ export function Footer({ products }: { products?: Array<{ name: string; slug: st
               icon: MapPin,
               label: "Location:",
               v1: {
-                text: `Agvanta Services,  
-                Office No. 2518, 
-                Solus Building, 
-                Hiranandani Estate, 
-                Ghodbunder Road, 
-                Thane - 400607, Maharashtra`
+                text: `Agvanta Services, Office No. 2518, 
+                Solus Building, Hiranandani Estate, 
+                Ghodbunder Road, Thane - 400607, Maharashtra`
               },
               v2: { text: "India" },
             },
