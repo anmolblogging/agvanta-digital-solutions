@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  MdEmail, 
-  MdPhone, 
-  MdLocationOn, 
-  MdAccessTime, 
-  MdCheckCircle 
+import {
+  MdEmail,
+  MdPhone,
+  MdLocationOn,
+  MdAccessTime,
+  MdCheckCircle
 } from "react-icons/md";
 import { FaTwitter, FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
 import { ContactForm } from "./ContactForm";
@@ -16,7 +16,7 @@ export function ContactContent() {
     <section className="py-20 md:py-32 bg-white overflow-hidden">
       <div className="container-wide">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
-          
+
           {/* LEFT: Contact Info */}
           <div className="lg:col-span-5 space-y-12">
             <motion.div
@@ -46,19 +46,19 @@ export function ContactContent() {
               </div>
 
               <div className="flex gap-6">
-  <div className="h-14 w-14 shrink-0 rounded-2xl bg-surface ring-1 ring-border grid place-items-center">
-    <MdPhone className="h-6 w-6 text-secondary" />
-  </div>
-  <div>
-    <h4 className="font-semibold text-xl">Call Us</h4>
-    <p className="text-muted-foreground mt-1">
-      <a href="tel:+919833727693" className="hover:underline">
-        +91 9833727693
-      </a>
-    </p>
-    <p className="text-muted-foreground">Mon - Sat, 9am - 6pm</p>
-  </div>
-</div>
+                <div className="h-14 w-14 shrink-0 rounded-2xl bg-surface ring-1 ring-border grid place-items-center">
+                  <MdPhone className="h-6 w-6 text-secondary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-xl">Call Us</h4>
+                  <p className="text-muted-foreground mt-1">
+                    <a href="tel:+919833727693" className="hover:underline">
+                      +91 9833727693
+                    </a>
+                  </p>
+                  <p className="text-muted-foreground">Mon - Sat, 9am - 6pm</p>
+                </div>
+              </div>
 
               <div className="flex gap-6">
                 <div className="h-14 w-14 shrink-0 rounded-2xl bg-surface ring-1 ring-border grid place-items-center">
@@ -67,11 +67,12 @@ export function ContactContent() {
                 <div>
                   <h4 className="font-semibold text-xl">Visit Us</h4>
                   <p className="text-muted-foreground mt-1">
-                    Aham Krishi Care Pvt Ltd 
-                    <br />16, Aslali Sewa Sahkari Mandli Godown,
-                    <br /> Near Ishwar Krupa Society,
-                    <br /> Behind Janki Hotel, 
-                    Aslali,<br /> Ahmedabad - 382427 , India
+                    {/* Agvanta Services, Office No. 2518, Solus Building, Hiranandani Estate, Ghodbunder Road, Thane - 400607, Maharashtra */}
+                    Agvanta Services
+                    <br />Office No. 2518,
+                    <br /> Solus Building,
+                    <br />  Hiranandani Estate,
+                    Ghodbunder Road, <br />   Thane - 400607, Maharashtra
                   </p>
                 </div>
               </div>
