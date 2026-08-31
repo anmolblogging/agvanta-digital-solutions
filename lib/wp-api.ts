@@ -383,7 +383,7 @@ export async function getProducts(opts: {
     // Graceful fallback when WP endpoint is unavailable or returns non-JSON (404 HTML etc.)
     // Log to console for developer visibility in dev mode, but don't crash the SSR render.
     // eslint-disable-next-line no-console
-    console.warn("[wp-api] getProducts failed:", err?.message ?? err);
+    console.warn("[wp-api] getProducts failed:", err instanceof Error ? err.message : err);
     return { products: [], total: 0, totalPages: 1, currentPage: page };
   }
 }
@@ -402,7 +402,7 @@ export async function getAllProducts(): Promise<NormalisedProduct[]> {
     return [first.products, ...rest.map((r) => r.products)].flat();
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.warn("[wp-api] getAllProducts failed:", err?.message ?? err);
+    console.warn("[wp-api] getAllProducts failed:", err instanceof Error ? err.message : err);
     return [];
   }
 }
@@ -418,7 +418,7 @@ export async function getProductBySlug(slug: string): Promise<NormalisedProduct 
     return product.category === "Digital Solutions" ? product : null;
   } catch (err) {
     // eslint-disable-next-line no-console
-    console.warn("[wp-api] getProductBySlug failed:", err?.message ?? err);
+    console.warn("[wp-api] getProductBySlug failed:", err instanceof Error ? err.message : err);
     return null;
   }
 }
