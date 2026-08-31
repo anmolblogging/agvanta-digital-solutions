@@ -199,7 +199,21 @@ async function wpFetch<T>(
         clearTimeout(timeoutId);
 
         if (!res.ok) {
-          const errorText = await res.text().catch(() => "Unknown error");
+          let errorText = await res.text().catch(() => "Unknown error");
+
+          // If the response appears to be HTML (e.g. a 404 HTML page), truncate
+          // and replace with a short snippet to avoid dumping large HTML into
+          // the server console (which triggers Next dev overlays).
+          if (typeof errorText === "string") {
+            const isHtml = /^\s*</.test(errorText);
+            if (isHtml) {
+              const snippet = errorText.replace(/\s+/g, " ").slice(0, 300);
+              errorText = `${snippet}... [HTML response omitted]`;
+            } else if (errorText.length > 300) {
+              errorText = errorText.slice(0, 300) + "...";
+            }
+          }
+
           throw new Error(`HTTP ${res.status}: ${errorText}`);
         }
 
@@ -349,44 +363,64 @@ export async function getProducts(opts: {
     ].join(","),
   });
 
-  const { data, headers } = await wpFetch<WpRawProduct[]>(
-    `/products?${params.toString()}`
-  );
+  try {
+    const { data, headers } = await wpFetch<WpRawProduct[]>(
+      `/products?${params.toString()}`
+    );
 
-  const total = parseInt(headers.get("X-WP-Total") ?? "0", 10);
-  const totalPages = parseInt(headers.get("X-WP-TotalPages") ?? "1", 10);
+    const total = parseInt(headers.get("X-WP-Total") ?? "0", 10);
+    const totalPages = parseInt(headers.get("X-WP-TotalPages") ?? "1", 10);
 
-  const normalised = data.map(normalise).filter((p) => p.category === "Digital Solutions");
+    const normalised = data.map(normalise).filter((p) => p.category === "Digital Solutions");
 
-  return {
-    products: normalised,
-    total: normalised.length,
-    totalPages,
-    currentPage: page,
-  };
+    return {
+      products: normalised,
+      total: normalised.length,
+      totalPages,
+      currentPage: page,
+    };
+  } catch (err) {
+    // Graceful fallback when WP endpoint is unavailable or returns non-JSON (404 HTML etc.)
+    // Log to console for developer visibility in dev mode, but don't crash the SSR render.
+    // eslint-disable-next-line no-console
+    console.warn("[wp-api] getProducts failed:", err?.message ?? err);
+    return { products: [], total: 0, totalPages: 1, currentPage: page };
+  }
 }
 
 export async function getAllProducts(): Promise<NormalisedProduct[]> {
-  const first = await getProducts({ page: 1, perPage: 100 });
-  if (first.totalPages <= 1) return first.products;
+  try {
+    const first = await getProducts({ page: 1, perPage: 100 });
+    if (first.totalPages <= 1) return first.products;
 
-  const rest = await Promise.all(
-    Array.from({ length: first.totalPages - 1 }, (_, i) =>
-      getProducts({ page: i + 2, perPage: 100 })
-    )
-  );
+    const rest = await Promise.all(
+      Array.from({ length: first.totalPages - 1 }, (_, i) =>
+        getProducts({ page: i + 2, perPage: 100 })
+      )
+    );
 
-  return [first.products, ...rest.map((r) => r.products)].flat();
+    return [first.products, ...rest.map((r) => r.products)].flat();
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.warn("[wp-api] getAllProducts failed:", err?.message ?? err);
+    return [];
+  }
 }
 
 export async function getProductBySlug(slug: string): Promise<NormalisedProduct | null> {
-  const { data } = await wpFetch<WpRawProduct[]>(
-    `/products?slug=${encodeURIComponent(slug)}&_fields=id,slug,date,modified,title,categories,acf,aioseo_head_json,aioseo_breadcrumb_json`
-  );
+  try {
+    const { data } = await wpFetch<WpRawProduct[]>(
+      `/products?slug=${encodeURIComponent(slug)}&_fields=id,slug,date,modified,title,categories,acf,aioseo_head_json,aioseo_breadcrumb_json`
+    );
 
-  if (!data.length) return null;
-  const product = normalise(data[0]);
-  return product.category === "Digital Solutions" ? product : null;
+    if (!data.length) return null;
+    const product = normalise(data[0]);
+    return product.category === "Digital Solutions" ? product : null;
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.warn("[wp-api] getProductBySlug failed:", err?.message ?? err);
+    return null;
+  }
 }
 
 
